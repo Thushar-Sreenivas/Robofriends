@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Card from './Card'
 
-const addRobotHandler = () => {
-  return (
+class App extends Component {
+   
+  addRobotHandler = () => {
+    return (
       <Card/>
-  )  
-}
-function App() {
-  return (
-    <div>
-      <button onClick={() => addRobotHandler()}>Click me to see Robots</button>
-      
-    </div>
-  );
+    )
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.addRobotHandler}>Click me to see Robots</button>
+      </div>
+    );
+  }
 }
 
 export default App;
