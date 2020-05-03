@@ -10,7 +10,6 @@ class App extends Component {
     const card = <Card/>
     return (
       <div>
-        {card}
         <button onClick={card}>Click me to see Robots</button>
       </div>
     );
