@@ -6,12 +6,12 @@ class App extends Component {
     showCard: []
   }
    
-  addRobotHandler = () => 
   render() {
+    const card = <Card/>
     return (
       <div>
-        
-        <button onClick={this.addRobotHandler}>Click me to see Robots</button>
+        {card}
+        <button onClick={card}>Click me to see Robots</button>
       </div>
     );
   }
