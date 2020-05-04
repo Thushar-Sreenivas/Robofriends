@@ -1,28 +1,20 @@
 import React, {Component} from 'react';
-import Card from './Card'
-import {robots} from './robotsDetails'
+import CardList from './Cards/CardList'
+import {robots} from './Robot/RobotsDetails'
 
 class App extends Component {
-  state = {
-    showRobot: false 
-  }
-
-  createCard = () => {
-    let cardCreator = []
-    for (let index = 0; index < 10; index++) {
-        cardCreator.push(<Card id={robots[index].id} name={robots[index].name} email={robots[index].email}/>)      
-    }
-    return cardCreator
-  }
-  robotToggleHandler = () => this.setState({showRobot: true})
-
   
   render() {
     return (
       <div>
-        <button className="f6 link dim ph3 pv2 mb2 dib white bg-hot-pink tc Font-weight: 900" 
-            onClick={this.robotToggleHandler}>Click me to see Awesome Robots</button>
-        {this.state.showRobot?this.createCard():null}
+        <h1 className="lh-title tc">RoboFriends</h1>
+        <form class="pa4 black-80">
+          <input id="name" class="center input-reset ba b--black-20 pa2 mb2 db w-70 " type="text" aria-describedby="name-desc"></input>
+          <searchBar id={1} robots={robots}/>
+        </form>
+        {/* <button className="flex items-center center f1 lh-title tc bg-light-green dib br4 pa3 ma3 grow bw3 shadow-5 fw6 link dim " 
+            onClick={this.robotToggleHandler}>Click me to see Awesome Robots</button> */}
+        <CardList robots={robots}/>
       </div>
     
     )
