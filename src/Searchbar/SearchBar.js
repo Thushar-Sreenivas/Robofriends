@@ -1,6 +1,7 @@
 import React from 'react'
 import cardList from '../Cards/CardList'
 import Card from '../Card/Card'
+
 const searchBar = ({id, robots}) => {
     return (
         <form className="pa4 black-80">

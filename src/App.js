@@ -3,20 +3,23 @@ import CardList from './Cards/CardList'
 import {robots} from './Robot/RobotsDetails'
 import searchBar from './Searchbar/SearchBar'
 class App extends Component {
-  
   state = {
-    searchValue: null
+    robots: robots,
+    searchValue: ''
   }
 
   searchResultHandler = (event) => {
       this.setState({searchValue: event.target.value})
+      const filteredComponent = robots.filter(robot => {
+        robot
+      })
   }
 
   render() {
     return (
       <div>
         <h1 className="lh-title tc">RoboFriends</h1>
-          <searchBar id={this.state.searchValue} robots={robots}/>
+          <searchBar robots={this.state.robots}/>
         {/* <CardList robots={robots}/> */}
       </div>
     
