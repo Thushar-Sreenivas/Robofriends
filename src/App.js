@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CardList from './Cards/CardList'
 import SearchBar from './Searchbar/SearchBar'
 import './App.css'
-
+import Scroll from './UI/Scroll'
 class App extends Component {
 
   state = {
@@ -32,7 +32,9 @@ class App extends Component {
             <div className="tc">
               <h1 className="f1">RoboFriends</h1>
               <SearchBar searchChange={this.searchResultHandler}/>
+              <Scroll>
               <CardList robots={filteredRobots}/>
+              </Scroll>
             </div>
           
           )
