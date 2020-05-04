@@ -14,15 +14,15 @@ class App extends Component {
   }
 
   render() {
-    const filteredRobots = robots.filter(robot => {
+    const filteredRobots = this.state.robots.filter(robot => {
       return(
         robot.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
           )
         })
     return (
-      <div>
+      <div className="tc">
         <h1 className="lh-title tc">RoboFriends</h1>
-        <searchBar searchValue={this.state.searchValue}/>
+        <searchBar searchChange={this.searchResultHandler}/>
         <CardList robots={filteredRobots}/>
       </div>
     
