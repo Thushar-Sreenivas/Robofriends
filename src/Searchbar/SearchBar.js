@@ -4,17 +4,24 @@ import React from 'react'
 
 const searchBar = ({searchChange}) => {
     return (
-        <form className="pa4 black-80">
+        <div className="pa4 black-80">
             <input id="name" className="center input-reset ba b--black-20 pa2 mb2 db w-70" 
                 type="search" aria-describedby="name-desc"  
                 onChange={searchChange}>
             </input>
-        </form>
+        </div>
     )
 }
 
 export default searchBar
 
+
+// <div className="pa4 black-80">
+//             <input id="name" className="center input-reset ba b--black-20 pa2 mb2 db w-70" 
+//                 type="search" aria-describedby="name-desc"  
+//                 onChange={searchChange}>
+//             </input>
+//         </div>
 
 
 
