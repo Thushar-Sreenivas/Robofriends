@@ -16,9 +16,12 @@ class App extends Component {
     return (
       <div>
         <h1 className="lh-title tc">RoboFriends</h1>
-        <form class="pa4 black-80" onSubmit={this.searchResultHandler}>
-          <input id="name" class="center input-reset ba b--black-20 pa2 mb2 db w-70 " type="text" aria-describedby="name-desc" value={this.state.searchValue}></input>
-          <searchBar id={1} robots={robots}/>
+        <form class="pa4 black-80">
+          <input id="name" class="center input-reset ba b--black-20 pa2 mb2 db w-70 " 
+            type="text" aria-describedby="name-desc" 
+            value={this.state.searchValue} onChange={this.searchResultHandler}>
+            </input>
+          <searchBar id={this.state.searchValue} robots={robots}/>
         </form>
         
         <CardList robots={robots}/>
