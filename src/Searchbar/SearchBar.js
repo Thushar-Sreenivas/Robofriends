@@ -4,11 +4,10 @@ import React from 'react'
 
 const searchBar = ({searchChange}) => {
     return (
-        <div className="pa4 black-80">
-            <input id="name" className="center input-reset ba b--black-20 pa2 mb2 db w-70" 
-                type="search" aria-describedby="name-desc"  
-                onChange={searchChange}>
-            </input>
+        <div className="pa2">
+            <input  className="center input-reset ba b--black-20 pa2 mb2 db w-70" 
+                type="search" placeholder="search robots"  
+                onChange={searchChange}/>
         </div>
     )
 }
