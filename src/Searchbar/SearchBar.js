@@ -1,13 +1,13 @@
 import React from 'react'
-import cardList from '../Cards/CardList'
-import Card from '../Card/Card'
+// import cardList from '../Cards/CardList'
+// import Card from '../Card/Card'
 
-const searchBar = ({id, robots}) => {
+const searchBar = ({searchValue}) => {
     return (
         <form className="pa4 black-80">
             <input id="name" className="center input-reset ba b--black-20 pa2 mb2 db w-70" 
                 type="search" aria-describedby="name-desc" 
-                value={this.state.searchValue} 
+                value={searchValue} 
                 onChange={this.searchResultHandler}>
             </input>
         </form>

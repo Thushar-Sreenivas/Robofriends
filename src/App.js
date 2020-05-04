@@ -3,6 +3,7 @@ import CardList from './Cards/CardList'
 import {robots} from './Robot/RobotsDetails'
 import searchBar from './Searchbar/SearchBar'
 class App extends Component {
+
   state = {
     robots: robots,
     searchValue: ''
@@ -10,17 +11,19 @@ class App extends Component {
 
   searchResultHandler = (event) => {
       this.setState({searchValue: event.target.value})
-      const filteredComponent = robots.filter(robot => {
-        robot
-      })
   }
 
   render() {
+    const filteredRobots = robots.filter(robot => {
+      return(
+        robot.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
+          )
+        })
     return (
       <div>
         <h1 className="lh-title tc">RoboFriends</h1>
-          <searchBar robots={this.state.robots}/>
-        {/* <CardList robots={robots}/> */}
+        <searchBar searchValue={this.state.searchValue}/>
+        <CardList robots={filteredRobots}/>
       </div>
     
     )
