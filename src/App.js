@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CardList from './Cards/CardList'
 import {robots} from './Robot/RobotsDetails'
-import searchBar from './Searchbar/SearchBar'
+import SearchBar from './Searchbar/SearchBar'
 class App extends Component {
 
   state = {
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="tc">
         <h1 className="lh-title tc">RoboFriends</h1>
-        <searchBar searchChange={this.searchResultHandler}/>
+        <SearchBar searchChange={this.searchResultHandler}/>
         <CardList robots={filteredRobots}/>
       </div>
     
