@@ -3,7 +3,6 @@ import Card from './Card'
 import {robots} from './robotsDetails'
 
 class App extends Component {
-  
   state = {
     showRobot: false 
   }
@@ -17,14 +16,16 @@ class App extends Component {
   }
   robotToggleHandler = () => this.setState({showRobot: true})
 
-  }
+  
   render() {
     return (
       <div>
-        <button onClick={this.robotToggleHandler}>Click me to see Awesome Robots</button>
-        {/* {this.state.showRobot?this.createCard():null} */}
+        <button className="f6 link dim ph3 pv2 mb2 dib white bg-hot-pink tc Font-weight: 900" 
+            onClick={this.robotToggleHandler}>Click me to see Awesome Robots</button>
+        {this.state.showRobot?this.createCard():null}
       </div>
     
     )
     }
+  }
 export default App;
