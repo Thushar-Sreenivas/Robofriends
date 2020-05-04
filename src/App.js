@@ -5,28 +5,37 @@ import './App.css'
 class App extends Component {
 
   state = {
-    robots: robots,
+    robots: [],
     searchValue: ''
   }
-
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(user => this.setState({robots: user}))
+  }
   searchResultHandler = (event) => {
       this.setState({searchValue: event.target.value})
   }
-
   render() {
-    const filteredRobots = this.state.robots.filter(robot => {
+    
+    let filteredRobots = this.state.robots.filter(robot => {
       return(
         robot.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
           )
         })
-    return (
-      <div className="tc">
-        <h1 className="f1">RoboFriends</h1>
-        <SearchBar searchChange={this.searchResultHandler}/>
-        <CardList robots={filteredRobots}/>
-      </div>
-    
-    )
+        if (this.state.robots.length === 0) {
+          return <h1>Loading</h1>
+        }
+        else {
+          return (
+            <div className="tc">
+              <h1 className="f1">RoboFriends</h1>
+              <SearchBar searchChange={this.searchResultHandler}/>
+              <CardList robots={filteredRobots}/>
+            </div>
+          
+          )
+        }
     }
   }
 export default App;
@@ -34,5 +43,3 @@ export default App;
 
 
 
-{/* <button className="flex items-center center f1 lh-title tc bg-light-green dib br4 pa3 ma3 grow bw3 shadow-5 fw6 link dim " 
-            onClick={this.robotToggleHandler}>Click me to see Awesome Robots</button> */}
