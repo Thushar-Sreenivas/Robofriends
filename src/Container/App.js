@@ -4,6 +4,7 @@ import SearchBar from '../Component/Searchbar/SearchBar'
 import './App.css'
 import Scroll from '../Component/UI/Scroll'
 import ErrorBoundary from '../HOC/ErrorBoundary'
+import { connect } from 'react-redux';
 class App extends Component {
 
   state = {
@@ -45,7 +46,15 @@ class App extends Component {
         }
     }
   }
-export default App;
+
+const mapStateToProps = state = {
+  return (
+    se
+  )
+}
+
+
+export default connect(mapStateToProps)(App);
 
 
 
