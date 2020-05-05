@@ -54,9 +54,13 @@ const mapStateToProps = state = {
     searchResult : state.searchValue
   )
 }
+const mapDispatchToProps = dispatch = {
+  return {
+    searchResult: () => dispatch(actionTypes.SEARCH_ROBOTS())
+  }
+}
 
-
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
 
 
 
