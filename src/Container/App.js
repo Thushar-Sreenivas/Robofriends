@@ -3,12 +3,14 @@ import CardList from '../Component/Cards/CardList'
 import SearchBar from '../Component/Searchbar/SearchBar'
 import './App.css'
 import Scroll from '../Component/UI/Scroll'
+import ErrorBoundary from '../HOC/ErrorBoundary'
 class App extends Component {
 
   state = {
     robots: [],
     searchValue: ''
   }
+
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
@@ -33,7 +35,9 @@ class App extends Component {
               <h1 className="f1">RoboFriends</h1>
               <SearchBar searchChange={this.searchResultHandler}/>
               <Scroll>
-              <CardList robots={filteredRobots}/>
+                <ErrorBoundary>
+                  <CardList robots={filteredRobots}/>
+                </ErrorBoundary>
               </Scroll>
             </div>
           
