@@ -5,6 +5,7 @@ import './App.css'
 import Scroll from '../Component/UI/Scroll'
 import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions/actionTypes'
 class App extends Component {
 
   state = {
@@ -49,7 +50,8 @@ class App extends Component {
 
 const mapStateToProps = state = {
   return (
-    se
+    robotsDetails: state.robots,
+    searchResult : state.searchValue
   )
 }
 
