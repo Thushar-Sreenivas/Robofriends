@@ -7,7 +7,6 @@ import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
 import * as actionCreator from '../store/actions/actions'
 class App extends Component {
-
   state = {
     robots: [],
   }
@@ -45,20 +44,6 @@ class App extends Component {
     }
   }
 
-const mapStateToProps = state => {
-  return {
-    robotsDetails: state.robots,
-    searchResult : state.searchValue
-  }
-  
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    onSearchChange: (event) => dispatch(actionCreator.search(event.target.value))
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(App);
 
 
 

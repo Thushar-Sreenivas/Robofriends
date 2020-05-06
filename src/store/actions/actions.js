@@ -1,9 +1,8 @@
 import * as actionTypes from './actionTypes'
 
-export const search = (text) => {
+export const onSearchChange = (searchValue) => {
     return {
-        type: actionTypes.SEARCH_ROBOTS,
-        payload: text
-
+        type: actionTypes.SEARCH_RESULT,
+        payload: searchValue
     }
 }

@@ -1,1 +1,1 @@
-export const SEARCH_ROBOTS = 'SEARCH_ROBOTS'
+export const SEARCH_RESULT = 'SEARCH_RESULT'
