@@ -56,7 +56,7 @@ const mapStateToProps = state = {
 }
 const mapDispatchToProps = dispatch = {
   return {
-    searchResult: () => dispatch(actionCreator.search())
+    searchResult: (event) => dispatch(actionCreator.search(event.target.value))
   }
 }
 

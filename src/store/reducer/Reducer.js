@@ -11,7 +11,7 @@ const reducer = (state = initialState, type) => {
             case actionTypes.SEARCH_ROBOTS :
                 return {
                     ...state,
-                    searchValue: event.target.value
+                    searchValue: action.text
                 }
                 
         
