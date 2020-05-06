@@ -9,7 +9,7 @@ const Reducer = (state = initialState, action) => {
         case actionTypes.SEARCH_RESULT:
             return {
                 ...state,
-                searchValue: 
+                searchValue: action.payload
             }    
         default:
             return state

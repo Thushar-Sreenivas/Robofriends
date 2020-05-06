@@ -44,7 +44,18 @@ class App extends Component {
     }
   }
 
+const mapStateToProps = state => {
+  return {
+    searchResult: state.searchValue
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchChange: (event) => dispatch(actionCreator.onSearchChange(event.target.value))
+  }
+}
 
+export default connect(mapStateToProps,mapDispatchToProps)(App)
 
 
 
