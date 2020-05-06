@@ -8,7 +8,6 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import SearchReducer from './store/reducer/Reducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import RobotsReducer from './store/reducer/RobotReducer';
 
 const rootReducer = combineReducers({SearchReducer, RobotsReducer})
 const store = createStore(rootReducer, applyMiddleware(thunk))
