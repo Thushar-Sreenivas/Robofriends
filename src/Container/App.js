@@ -5,7 +5,7 @@ import './App.css'
 import Scroll from '../Component/UI/Scroll'
 import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
-import * as actionTypes from '../store/actions/actionTypes'
+import * as actionCreator from '../store/actions/actions'
 class App extends Component {
 
   state = {
@@ -56,7 +56,7 @@ const mapStateToProps = state = {
 }
 const mapDispatchToProps = dispatch = {
   return {
-    searchResult: () => dispatch(actionTypes.SEARCH_ROBOTS())
+    searchResult: () => dispatch(actionCreator.search())
   }
 }
 
