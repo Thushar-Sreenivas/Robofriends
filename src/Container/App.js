@@ -6,6 +6,7 @@ import Scroll from '../Component/UI/Scroll'
 import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
 import * as actionCreator from '../store/actions/actions'
+import SearchReducer from '../store/reducer/Reducer'
 class App extends Component {
 
   componentDidMount() {
@@ -14,12 +15,12 @@ class App extends Component {
   
   render() {
     
-    let filteredRobots = this.state.robots.filter(robot => {
+    let filteredRobots = this.props.robots.filter(robot => {
       return(
         robot.name.toLowerCase().includes(this.props.searchResult.toLowerCase())
           )
         })
-        if (this.state.robots.length === 0) {
+        if (this.props.isPending) {
           return <h1>Loading</h1>
         }
         else {
@@ -41,7 +42,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    searchResult: state.searchValue
+    searchResult: state.SearchReducer.searchValue,
+    robots: state.RobotsReducer.robots,
+    isPending: state.RobotsReducer.isPending,
+    error: state.RobotsReducer.error,
   }
 }
 const mapDispatchToProps = dispatch => {

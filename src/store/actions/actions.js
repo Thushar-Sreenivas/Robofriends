@@ -8,7 +8,7 @@ export const onSearchChange = (searchValue) => {
 }
 
 
-export const robotsData = (dispatch) => {
+export const robotsData = () => (dispatch) => {
     dispatch({type: actionTypes.ROBOTS_PENDING,})
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())

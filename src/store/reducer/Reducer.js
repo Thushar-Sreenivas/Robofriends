@@ -4,7 +4,7 @@ const initialState = {
     searchValue: ''
 }
 
-const Reducer = (state = initialState, action) => {
+const SearchReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SEARCH_RESULT:
             return {
@@ -16,4 +16,4 @@ const Reducer = (state = initialState, action) => {
     }
 } 
 
-export default Reducer
+export default SearchReducer
