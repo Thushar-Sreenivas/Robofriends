@@ -7,14 +7,9 @@ import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
 import * as actionCreator from '../store/actions/actions'
 class App extends Component {
-  state = {
-    robots: [],
-  }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(user => this.setState({robots: user}))
+    this.props.robotDataFetch()
   }
   
   render() {
@@ -51,7 +46,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: (event) => dispatch(actionCreator.onSearchChange(event.target.value))
+    onSearchChange: (event) => dispatch(actionCreator.onSearchChange(event.target.value)),
+    robotDataFetch: () => dispatch(actionCreator.robotsData())
   }
 }
 
