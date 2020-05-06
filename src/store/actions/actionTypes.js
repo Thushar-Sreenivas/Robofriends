@@ -1,1 +1,5 @@
 export const SEARCH_RESULT = 'SEARCH_RESULT'
+
+export const ROBOTS_PENDING = 'ROBOTS_PENDING'
+export const ROBOTS_SUCCESS = 'ROBOTS_SUCCESS'
+export const ROBOTS_FAIL = 'ROBOTS_FAIL'

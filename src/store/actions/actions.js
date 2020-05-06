@@ -6,3 +6,12 @@ export const onSearchChange = (searchValue) => {
         payload: searchValue
     }
 }
+
+
+
+export const robotsData = (dispatch) => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(user => dispatch({type: actionTypes.ROBOTS_SUCCESS, payload: user} )
+    .catch(error => dispatch({type: actionTypes.ROBOTS_FAIL, payload: error} ))
+}
