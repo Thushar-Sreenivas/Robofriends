@@ -10,7 +10,6 @@ class App extends Component {
 
   state = {
     robots: [],
-    searchValue: ''
   }
 
   componentDidMount() {
@@ -18,14 +17,12 @@ class App extends Component {
     .then(response => response.json())
     .then(user => this.setState({robots: user}))
   }
-  searchResultHandler = (event) => {
-      this.setState({searchValue: event.target.value})
-  }
+  
   render() {
     
     let filteredRobots = this.state.robots.filter(robot => {
       return(
-        robot.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
+        robot.name.toLowerCase().includes(this.props.searchResult.toLowerCase())
           )
         })
         if (this.state.robots.length === 0) {
@@ -35,7 +32,7 @@ class App extends Component {
           return (
             <div className="tc">
               <h1 className="f1">RoboFriends</h1>
-              <SearchBar searchChange={this.searchResultHandler}/>
+              <SearchBar searchChange={this.props.onSearchChange}/>
               <Scroll>
                 <ErrorBoundary>
                   <CardList robots={filteredRobots}/>
@@ -48,15 +45,16 @@ class App extends Component {
     }
   }
 
-const mapStateToProps = state = {
-  return (
+const mapStateToProps = state => {
+  return {
     robotsDetails: state.robots,
     searchResult : state.searchValue
-  )
+  }
+  
 }
-const mapDispatchToProps = dispatch = {
+const mapDispatchToProps = dispatch => {
   return {
-    searchResult: (event) => dispatch(actionCreator.search(event.target.value))
+    onSearchChange: (event) => dispatch(actionCreator.search(event.target.value))
   }
 }
 

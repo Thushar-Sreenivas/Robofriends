@@ -6,15 +6,13 @@ const initialState = {
     searchValue: ''
 }
 
-const reducer = (state = initialState, type) => {
+const reducer = (state = initialState, action) => {
         switch (action.type) {
             case actionTypes.SEARCH_ROBOTS :
                 return {
                     ...state,
-                    searchValue: action.text
+                    searchValue: action.payload
                 }
-                
-        
             default:
                 return state
         }
