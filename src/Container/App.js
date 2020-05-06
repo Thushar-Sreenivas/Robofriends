@@ -6,26 +6,21 @@ import Scroll from '../Component/UI/Scroll'
 import ErrorBoundary from '../HOC/ErrorBoundary'
 import { connect } from 'react-redux';
 import * as actionCreator from '../store/actions/actions'
+import SearchReducer from '../store/reducer/Reducer'
 class App extends Component {
 
-  state = {
-    robots: [],
-  }
-
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(user => this.setState({robots: user}))
+    this.props.robotDataFetch()
   }
   
   render() {
     
-    let filteredRobots = this.state.robots.filter(robot => {
+    let filteredRobots = this.props.robots.filter(robot => {
       return(
         robot.name.toLowerCase().includes(this.props.searchResult.toLowerCase())
           )
         })
-        if (this.state.robots.length === 0) {
+        if (this.props.isPending) {
           return <h1>Loading</h1>
         }
         else {
@@ -47,19 +42,20 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    robotsDetails: state.robots,
-    searchResult : state.searchValue
+    searchResult: state.SearchReducer.searchValue,
+    robots: state.RobotsReducer.robots,
+    isPending: state.RobotsReducer.isPending,
+    error: state.RobotsReducer.error,
   }
-  
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: (event) => dispatch(actionCreator.search(event.target.value))
+    onSearchChange: (event) => dispatch(actionCreator.onSearchChange(event.target.value)),
+    robotDataFetch: () => dispatch(actionCreator.robotsData())
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
-
+export default connect(mapStateToProps,mapDispatchToProps)(App)
 
 
 

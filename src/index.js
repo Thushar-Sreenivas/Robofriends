@@ -4,12 +4,14 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import "tachyons"
 import App from './Container/App'
-import { createStore } from 'redux';
-import reducer from './store/reducer/Reducer';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import SearchReducer from './store/reducer/Reducer';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import RobotsReducer from './store/reducer/RobotReducer';
 
-const store = createStore(reducer)
-
+const rootReducer = combineReducers({SearchReducer, RobotsReducer})
+const store = createStore(rootReducer, applyMiddleware(thunk))
 const app = (
   <React.StrictMode>
     <Provider store={store}>
